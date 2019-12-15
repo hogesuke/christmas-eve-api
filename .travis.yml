@@ -1,0 +1,13 @@
+language: node_js
+node_js:
+  - '10'
+notifications:
+  email: false
+cache:
+  directories:
+    - node_modules
+env:
+  matrix:
+    - LINT_SCRIPT=eslint
+    - LINT_SCRIPT=stylelint
+script: npm run $LINT_SCRIPT

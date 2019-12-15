@@ -1,0 +1,43 @@
+{
+  "name": "christmas-eve-api",
+  "version": "0.0.1",
+  "private": true,
+  "scripts": {
+    "start": "node app.js",
+    "build": "webpack",
+    "watch": "webpack --watch",
+    "eslint": "eslint ./src"
+  },
+  "dependencies": {
+    "D": "^1.0.0",
+    "async": "~0.8.0",
+    "body-parser": "^1.19.0",
+    "cookie-parser": "^1.4.4",
+    "errorhandler": "^1.5.1",
+    "express": "^4.17.1",
+    "express-session": "^1.16.2",
+    "method-override": "^3.0.0",
+    "morgan": "^1.9.1",
+    "node-github": "0.0.3",
+    "passport": "^0.4.0",
+    "passport-github": "^1.1.0",
+    "request": "^2.88.0",
+    "ress": "^1.2.2",
+    "serve-favicon": "^2.5.0",
+    "serve-static": "^1.14.1"
+  },
+  "devDependencies": {
+    "@typescript-eslint/eslint-plugin": "^2.11.0",
+    "@typescript-eslint/parser": "^2.11.0",
+    "eslint": "^6.1.0",
+    "eslint-config-standard": "^13.0.1",
+    "eslint-plugin-import": "^2.18.2",
+    "eslint-plugin-node": "^9.1.0",
+    "eslint-plugin-promise": "^4.2.1",
+    "eslint-plugin-standard": "^4.0.0",
+    "ts-loader": "^6.2.1",
+    "typescript": "^3.7.3",
+    "webpack": "^4.39.1",
+    "webpack-cli": "^3.3.6"
+  }
+}
