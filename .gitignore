@@ -1,3 +1,3 @@
 node_modules/
 dist/
-config/login-configuration.js
+config/config.js

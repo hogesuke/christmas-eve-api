@@ -4,8 +4,10 @@ const isProduction = process.env.NODE_ENV === 'production';
 
 module.exports = {
   mode: "development",
+  target: 'node',
   resolve: {
-    extensions: [".ts", ".js"]
+    extensions: [".ts", ".js"],
+    mainFields: ['main']
   },
   entry: "./src/app.ts",
   output: {
