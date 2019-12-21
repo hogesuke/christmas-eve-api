@@ -6,7 +6,7 @@ const octokit = new Octokit({
   auth: config.token
 })
 
-const memcache = memjs.Client.create(process.env.MEMCACHE_SERVER)
+const memcache = memjs.Client.create(process.env.MEMCACHE_SERVER, { username: process.env.MEMCACHE_USERNAME })
 
 exports.list = async (req, res) => {
   const [ owner, repo ] = (req.query.target || '').split('/')
