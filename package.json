@@ -6,6 +6,7 @@
     "start": "node ./dist/app.js",
     "start:dev": "node-dev ./dist/app.js",
     "build": "webpack",
+    "build:prd": "webpack -p",
     "watch": "webpack --watch",
     "eslint": "eslint ./src"
   },
