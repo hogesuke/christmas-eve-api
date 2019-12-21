@@ -1,15 +1,25 @@
 const Octokit = require('@octokit/rest');
+const memjs = require('memjs')
 const config = require('../../config/config');
 
 const octokit = new Octokit({
   auth: config.token
 });
 
-exports.list = (req, res) => {
+const memcache = memjs.Client.create('localhost:11211')
+
+exports.list = async (req, res) => {
   const [ owner, repo ] = (req.query.target || '').split('/')
 
   if (!owner || !repo) {
     res.status(400).send('Bad request')
+    return
+  }
+
+  const { value } = await memcache.get(`${owner}/${repo}`)
+
+  if (value) {
+    res.send(value.toString())
     return
   }
 
@@ -19,6 +29,8 @@ exports.list = (req, res) => {
   }).then(({ data }) => {
     const messages = data.map(a => a.commit.message)
     const messagesWithoutMerge = messages.filter(a => !a.startsWith('Merge pull request'))
+
+    memcache.set(`${owner}/${repo}`, JSON.stringify(messagesWithoutMerge), { expires: 10 })
 
     res.send(messagesWithoutMerge)
   }).catch(error => {
