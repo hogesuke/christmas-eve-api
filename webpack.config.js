@@ -1,4 +1,4 @@
-const path = require('path');
+const Dotenv = require('dotenv-webpack');
 
 const isProduction = process.env.NODE_ENV === 'production';
 
@@ -23,4 +23,7 @@ module.exports = {
     ]
   },
   devtool: isProduction ? false : 'inline-cheap-source-map',
+  plugins: [
+    new Dotenv()
+  ],
 };
