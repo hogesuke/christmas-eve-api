@@ -25,7 +25,8 @@ exports.list = async (req, res) => {
 
   octokit.repos.listCommits({
     owner,
-    repo
+    repo,
+    per_page: 100
   }).then(({ data }) => {
     const messages = data.map(a => a.commit.message)
     const messagesWithoutMerge = messages.filter(a => !a.startsWith('Merge pull request'))
